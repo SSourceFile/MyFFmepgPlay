@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+
+ <ScrollView
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <LinearLayout
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:orientation="vertical">
+
+   <Button
+    android:id="@+id/btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="暂停"/>
+   <Button
+   android:id="@+id/restart"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:text="继续"/>
+   <Button
+    android:id="@+id/time_get"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="获取时间"/>
+   <TextView
+    android:id="@+id/time"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="sdfsd"/>
+   <TextView
+    android:id="@+id/total_time"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="胜多负少"/>
+   <SurfaceView
+    android:id="@+id/sur_play"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"></SurfaceView>
+
+ <SeekBar
+  android:id="@+id/seekbar"
+  android:layout_width="match_parent"
+  android:layout_height="10dp"
+  android:layout_marginTop="@dimen/permission_dp_10"/>
+   <TextView
+    android:id="@+id/sample_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello World!"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+  </LinearLayout>
+
+ </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

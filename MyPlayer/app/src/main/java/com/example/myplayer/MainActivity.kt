@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
-//  val path = Environment.getExternalStorageDirectory().absolutePath + "/DCIM/Camera/fire.mp4"
-  val path = Environment.getExternalStorageDirectory().absolutePath + "/DingTalk/test2_1.mp4"
+  val path = Environment.getExternalStorageDirectory().absolutePath + "/Download/aaa.mp4"
+//  val path = Environment.getExternalStorageDirectory().absolutePath + "/DingTalk/test2_1.mp4"
 //  val path = Environment.getExternalStorageDirectory().absolutePath + "/netease/cloudmusic/Music/suyan.mp3"
 
   private var player: Int? = null

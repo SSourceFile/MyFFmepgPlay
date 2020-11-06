@@ -37,31 +37,32 @@ Java_com_example_myplayer_MainActivity_ffmpegInfo(JNIEnv *env, jobject  /* this 
     return env->NewStringUTF(info);
 }
 
+Player *play;
 JNIEXPORT jint JNICALL
 Java_com_example_myplayer_MainActivity_createPlayer(JNIEnv *env, jobject thiz, jstring path,
                                                     jobject surface) {
-    Player *play = new Player(env, path, surface);
-    return (jint) play;
+    play = new Player(env, path, surface);
+    return 0;
 }
 JNIEXPORT void JNICALL
 Java_com_example_myplayer_MainActivity_play(JNIEnv *env, jobject thiz, jint player) {
     Player *p = (Player *)player;
-    p->play();
+    play->play();
 }
 JNIEXPORT void JNICALL
 Java_com_example_myplayer_MainActivity_pause(JNIEnv *env, jobject thiz, jint player) {
     Player *p = (Player *)player;
-    p->pause();
+    play->pause();
 }
 JNIEXPORT jlong JNICALL
 Java_com_example_myplayer_MainActivity_curTime(JNIEnv *env, jobject thiz, jint player) {
     Player *p = (Player *)player;
-    return p->curTime();
+    return play->curTime();
 }
 JNIEXPORT jlong JNICALL
 Java_com_example_myplayer_MainActivity_totalTime(JNIEnv *env, jobject thiz, jint player) {
     Player *p = (Player *)player;
-    return p->totalTime();
+    return play->totalTime();
 }
 
 }

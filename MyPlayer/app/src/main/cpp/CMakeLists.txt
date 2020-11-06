@@ -18,12 +18,16 @@ set(ffmpeg_lib_dir ${CMAKE_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
 set(ffmpeg_head_dir ${CMAKE_SOURCE_DIR}/ffmpeg)
 set(ffmpeg_media_dir ${CMAKE_SOURCE_DIR}/media)
 set(ffmpeg_utils_dir ${CMAKE_SOURCE_DIR}/utils)
+message(${ffmpeg_lib_dir})
 
-
+#set(CMAKE_C_FLAGS"$ {CMAKE_C_FLAGS} -fPIC")
+#set(CMAKE_CXX_FLAGS"$ {CMAKE_CXX_FLAGS} -fPIC")
+#add_compile_options(-fPIC)
 message(${CMAKE_SOURCE_DIR})
 # 2. 添加头文件目录
 include_directories(${ffmpeg_head_dir}/include)
-
+#target_compile_options(mytarget PRIVATE -ffunction-sections -fdata-sections)
+#target_link_libraries(${LOCAL_LDFLAGS} -Wl,--gc-sections,--icf=safe)
 
 # 3. 添加ffmpeg相关的so库
 add_library(avutil

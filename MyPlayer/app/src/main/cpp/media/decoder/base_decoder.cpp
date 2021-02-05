@@ -191,6 +191,9 @@ AVFrame* BaseDecoder::DecodeOneFrame() {
             }
             //TODO 这里需要考虑一个packet有可能包含多个frame的情况
             int result = avcodec_receive_frame(m_codec_ctx, m_frame);
+            int rs = avcodec_receive_packet(m_codec_ctx, m_packet);
+            LOG_INFO(TAG, LogSpec(), "真是多喝水， %d", rs);
+            LOG_INFO(TAG, LogSpec(), "哇擦的， %d", result);
             if (result == 0) {
                 ObtainTimeStamp();
                 av_packet_unref(m_packet);

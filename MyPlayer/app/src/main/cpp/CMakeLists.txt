@@ -72,12 +72,24 @@ set_target_properties(avformat
         PROPERTIES IMPORTED_LOCATION
         ${ffmpeg_lib_dir}/libavformat.so)
 
-add_library(avdevice
+add_library(opengl_test
         SHARED
-        IMPORTED)
-set_target_properties(avdevice
-        PROPERTIES IMPORTED_LOCATION
-        ${ffmpeg_lib_dir}/libavdevice.so)
+        opengl_test.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/MyGLRenderContext.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/MyGLRenderContext.h
+        ${CMAKE_SOURCE_DIR}/opengl/TriangleSample.h
+        ${CMAKE_SOURCE_DIR}/opengl/TriangleSample.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/GLUtils.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/GLUtils.h
+        ${CMAKE_SOURCE_DIR}/backgram/native_color.h
+        ${CMAKE_SOURCE_DIR}/backgram/native_color.cpp)
+
+#add_library(avdevice
+#        SHARED
+#        IMPORTED)
+#set_target_properties(avdevice
+#        PROPERTIES IMPORTED_LOCATION
+#        ${ffmpeg_lib_dir}/libavdevice.so)
 
 # 查找代码中使用到的系统库
 find_library( # Sets the name of the path variable.
@@ -134,7 +146,9 @@ target_link_libraries(
         #        base_decoder-lib
         # 4. 连接 FFmpeg 相关的库
         -landroid
-        OpenSLES
+
+        EGL
+        GLESv3
         -lEGL
         -lGLESv2
         avutil
@@ -143,7 +157,8 @@ target_link_libraries(
         avfilter
         swscale
         avformat
-        avdevice
+        opengl_test
+#        avdevice
 
         # Links the target library to the log library
         # included in the NDK.

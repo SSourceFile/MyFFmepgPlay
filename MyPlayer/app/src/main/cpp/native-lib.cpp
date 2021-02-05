@@ -67,3 +67,9 @@ Java_com_example_myplayer_MainActivity_totalTime(JNIEnv *env, jobject thiz, jint
 
 }
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_myplayer_NativeColorRenderer_surfaceCreated(JNIEnv *env, jobject thiz,
+                                                             jint color) {
+    // TODO: implement surfaceCreated()
+}

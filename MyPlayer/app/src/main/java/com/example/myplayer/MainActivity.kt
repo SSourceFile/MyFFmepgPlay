@@ -1,5 +1,6 @@
 package com.example.myplayer
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -11,8 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
-  val path = Environment.getExternalStorageDirectory().absolutePath + "/Download/aaa.mp4"
-//  val path = Environment.getExternalStorageDirectory().absolutePath + "/DingTalk/test2_1.mp4"
+//  val path = Environment.getExternalStorageDirectory().absolutePath + "/Movies/aaa.mp4"
+  val path = Environment.getExternalStorageDirectory().absolutePath + "/DingTalk/test2_1.mp4"
 //  val path = Environment.getExternalStorageDirectory().absolutePath + "/netease/cloudmusic/Music/suyan.mp3"
 
   private var player: Int? = null
@@ -26,9 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     initPlayer()
     btn.setOnClickListener {
-      if(player!= null){
-        pause(player!!)
-      }
+//      if(player!= null){
+//        pause(player!!)
+//      }
+    var intent = Intent(this, OpenGLBackActivity::class.java)
+      startActivity(intent)
     }
     restart.setOnClickListener {
       if(player != null){
@@ -44,7 +47,9 @@ class MainActivity : AppCompatActivity() {
       if(player!= null){
         total_time.text = totalTime(player!!).toString()
       }
-//    }
+
+
+
 
   }
 
